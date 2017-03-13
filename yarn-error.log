@@ -1,0 +1,43 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js
+
+PATH: 
+  C:\Users\Edward Lance Lorilla\bin;C:\Users\Edward Lance Lorilla\AppData\Local\Programs\Git\mingw64\bin;C:\Users\Edward Lance Lorilla\AppData\Local\Programs\Git\usr\local\bin;C:\Users\Edward Lance Lorilla\AppData\Local\Programs\Git\usr\bin;C:\Users\Edward Lance Lorilla\AppData\Local\Programs\Git\usr\bin;C:\Users\Edward Lance Lorilla\AppData\Local\Programs\Git\mingw64\bin;C:\Users\Edward Lance Lorilla\AppData\Local\Programs\Git\usr\bin;C:\Users\Edward Lance Lorilla\bin;C:\Program Files (x86)\Common Files\Intel\Shared Libraries\redist\intel64\compiler;C:\Program Files (x86)\Common Files\Intel\Shared Files\cpp\bin\Intel64;C:\Program Files (x86)\Intel\iCLS Client;C:\Program Files\Intel\iCLS Client;C:\ProgramData\Oracle\Java\javapath;C:\Android\platform-tools;C:\Program Files (x86)\Common Files\lenovo\easyplussdk\bin;C:\Program Files (x86)\Skype\Phone;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\Program Files\Microsoft SQL Server\130\Tools\Binn;C:\Program Files (x86)\Windows Kits\10\Windows Performance Toolkit;C:\Program Files (x86)\Microsoft Emulator Manager\1.0;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\MATLAB\MATLAB Production Server\R2015aa\runtime\win64;C:\Program Files\MATLAB\MATLAB Production Server\R2015aa\bin;C:\Program Files\MATLAB\MATLAB Production Server\R2015aa\polyspace\bin;C:\Program Files (x86)\QuickTime\QTSystem;C:\Program Files (x86)\Yarn\bin;C:\Program Files\nodejs;C:\Users\Edward Lance Lorilla\AppData\Local\Microsoft\WindowsApps;C:\xampp\php;C:\Users\Edward Lance Lorilla\AppData\Local\ComposerSetup\bin;C:\Users\Edward Lance Lorilla\AppData\Roaming\Composer\vendor\bin;C:\Users\Edward Lance Lorilla\AppData\Local\Yarn\.bin;C:\Users\Edward Lance Lorilla\AppData\Roaming\npm;C:\Users\Edward Lance Lorilla\AppData\Local\Programs\Git\cmd;C:\Users\Edward Lance Lorilla\AppData\Local\Programs\Git\usr\bin\vendor_perl;C:\Users\Edward Lance Lorilla\AppData\Local\Programs\Git\usr\bin\core_perl
+
+Yarn version: 
+  0.17.10
+
+Node version: 
+  7.7.1
+
+Platform: 
+  win32 x64
+
+npm manifest: 
+  {
+    "private": true,
+    "scripts": {
+      "dev": "cross-env NODE_ENV=development webpack --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+      "watch": "node node_modules/cross-env/bin/cross-env.js NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+      "watch-poll": "node node_modules/cross-env/bin/cross-env.js NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --watch-poll --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+      "hot": "node node_modules/cross-env/bin/cross-env.js NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
+      "production": "node node_modules/cross-env/bin/cross-env.js NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
+    },
+    "devDependencies": {
+      "axios": "^0.15.3",
+      "bootstrap-sass": "^3.3.7",
+      "jquery": "^3.1.1",
+      "laravel-mix": "^0.8.1",
+      "lodash": "^4.17.4",
+      "vue": "^2.1.10"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
+
+Trace: 
+  Error: ENOENT: no such file or directory, open 'C:\xampp\htdocs\shoppingCart\node_modules\readable-stream\node_modules\isarray\.npmignore'
