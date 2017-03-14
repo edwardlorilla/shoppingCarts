@@ -10,7 +10,7 @@ add (product) {
     if(typeof found != 'object') {
         this.data.cart.push({
             id: product.id,
-            title: product.product,
+            product: product.product,
             price: product.price,
             image: product.image.file,
             qty: 1
