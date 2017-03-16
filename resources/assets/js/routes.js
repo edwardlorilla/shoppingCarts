@@ -3,6 +3,7 @@
  */
 import Home from './components/Home.vue';
 import CheckOut from './components/Product/CheckOut.vue';
+import Signin from './components/Credential/Master.vue';
 export default [
     {
         path: '/home',
@@ -12,5 +13,10 @@ export default [
         path: '/checkout',
         component: CheckOut,
         name: 'checkout'
+    },
+    {
+        path:'/signin',
+        component:Signin,
+        name:'signin'
     }
 ]
