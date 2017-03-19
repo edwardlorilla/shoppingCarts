@@ -1,16 +1,23 @@
 <template>
-    <div class="login-page">
-        <div class="form">
-            <transition name="component-fade" mode="out-in">
-                <component v-bind:is="view"></component>
-                </transition>
-            <!-- `view` is the name of a data defined below -->
-            <p class="message">Not registered? <a @click.prevent="view == 'login-form' ? view = 'register-form' : view = 'login-form';">Create an account</a></p>
+    <div>
+        <search-credential></search-credential>
+        <div class="w3-container w3-theme-d1">
+            <div class="w3-theme-d1 login-page">
+                <div class="form">
+                    <transition name="component-fade" mode="out-in">
+                        <component v-bind:is="view"></component>
+                    </transition>
+                    <!-- `view` is the name of a data defined below -->
+                    <p class="message">Not registered? <a
+                            @click.prevent="view == 'login-form' ? view = 'register-form' : view = 'login-form';">Create
+                        an account</a></p>
 
+                </div>
+            </div>
         </div>
     </div>
 </template>
-<style scoped>
+<style>
     .login-page {
   width: 360px;
   padding: 8% 0 0;
@@ -99,19 +106,12 @@
 .container .info span .fa {
   color: #EF3B3A;
 }
-body {
-  background: #76b852; /* fallback for old browsers */
-  background: -webkit-linear-gradient(right, #76b852, #8DC26F);
-  background: -moz-linear-gradient(right, #76b852, #8DC26F);
-  background: -o-linear-gradient(right, #76b852, #8DC26F);
-  background: linear-gradient(to left, #76b852, #8DC26F);
-  font-family: "Roboto", sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+
+
 
 </style>
 <script>
+    import Search from './../Search.vue';
     import LoginForm from './LoginForm.vue';
     import RegisterForm from './RegisterForm.vue';
     export default{
@@ -122,10 +122,12 @@ body {
         },
         components: {
             'login-form':LoginForm,
-            'register-form':RegisterForm
+            'register-form':RegisterForm,
+            'search-credential':Search
         },
 
     }
+
 
 
 

@@ -1,4 +1,3 @@
-
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -17,12 +16,23 @@ import App from './components/App.vue';
 Vue.use(VueRouter);
 
 
-
 const router = new VueRouter({
     mode: 'history',
     base: __dirname,
     linkActiveClass: 'active',
     routes: routes
 });
+router.beforeEach((to, from, next) => {
+    if (to.meta.requiresAuth) {
+        const authUser = JSON.parse(window.localStorage.getItem('authUser'))
+        if (authUser && authUser.access_token) {
+            next()
+        } else {
+            next({name: 'signin'})
+        }
+    }
+    next()
+})
 
-new Vue(Vue.util.extend({ router }, App)).$mount('#vue');
+
+new Vue(Vue.util.extend({router}, App)).$mount('#vue');
