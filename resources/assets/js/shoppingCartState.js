@@ -25,6 +25,7 @@ inc (product) {
     }
 },
 dec (product) {
+    console.log(product)
     var found = _.find(this.data.cart, ['id', product.id])
     if(typeof found == 'object') {
         var index = _.indexOf(this.data.cart, found)
@@ -34,5 +35,12 @@ dec (product) {
             this.data.cart[index].qty--
         }
     }
-}
+},
+    deleteItem (product) {
+        var found = _.find(this.data.cart, ['id', product.id])
+        if(typeof found == 'object') {
+            var index = _.indexOf(this.data.cart, found)
+            this.data.cart.splice(index, 1)
+        }
+    }
 }

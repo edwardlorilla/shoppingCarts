@@ -19,7 +19,7 @@
                         <button class="w3-bar-item w3-button w3-teal" style="width:50%" @click="inc">+</button>
                         <button class="w3-bar-item w3-button w3-red" style="width:50%" @click="dec">-</button>
                         </div>
-                    </div>
+                </div>
             </div>
     </div>
 </template>

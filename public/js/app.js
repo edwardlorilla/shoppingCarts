@@ -1307,6 +1307,7 @@ exports.default = {
         }
     },
     dec: function dec(product) {
+        console.log(product);
         var found = _.find(this.data.cart, ['id', product.id]);
         if ((typeof found === 'undefined' ? 'undefined' : _typeof(found)) == 'object') {
             var index = _.indexOf(this.data.cart, found);
@@ -1315,6 +1316,13 @@ exports.default = {
             } else {
                 this.data.cart[index].qty--;
             }
+        }
+    },
+    deleteItem: function deleteItem(product) {
+        var found = _.find(this.data.cart, ['id', product.id]);
+        if ((typeof found === 'undefined' ? 'undefined' : _typeof(found)) == 'object') {
+            var index = _.indexOf(this.data.cart, found);
+            this.data.cart.splice(index, 1);
         }
     }
 };
@@ -13029,9 +13037,30 @@ exports.default = {
             return _.sumBy(this.items, function (item) {
                 return item.price * item.qty;
             });
+        },
+        isEmpty: function isEmpty() {
+            return _.isEmpty(this.items);
+        }
+    },
+    methods: {
+        deleteItem: function deleteItem(index) {
+            console.log(index);
+            _shoppingCartState2.default.deleteItem(this.items[index]);
         }
     }
 }; //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -33057,7 +33086,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "w3-content"
   }, [(_vm.total == 0) ? _c('p', {
     staticClass: "cart-empty"
-  }, [_vm._v("Your Shopping Cart is Empty!")]) : _vm._l((_vm.items), function(item) {
+  }, [_vm._v("Your Shopping Cart is Empty!")]) : _vm._l((_vm.items), function(item, index) {
     return _c('div', {
       staticClass: "w3-row w3-margin"
     }, [_c('ul', {
@@ -33065,22 +33094,34 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }, [_c('li', {
       staticClass: "w3-padding-16"
     }, [_c('span', {
-      staticClass: "w3-closebtn w3-padding w3-margin-right w3-medium",
-      attrs: {
-        "onclick": "this.parentElement.style.display='none'"
+      staticClass: "w3-button w3-white w3-xlarge w3-right",
+      on: {
+        "click": function($event) {
+          _vm.deleteItem(index)
+        }
       }
     }, [_vm._v("×")]), _vm._v(" "), _c('img', {
-      staticClass: "w3-left  w3-margin-right",
+      staticClass: "w3-left w3-circle w3-margin-right",
       staticStyle: {
-        "width": "10%"
+        "width": "50px"
       },
       attrs: {
         "src": item.image
       }
     }), _vm._v(" "), _c('span', {
-      staticClass: "w3-xlarge"
-    }, [_vm._v(_vm._s(item.product))]), _c('br'), _vm._v(" "), _c('span', [_vm._v("\n                    x" + _vm._s(item.qty) + "\n                    $ " + _vm._s(item.qty * item.price) + "\n                    ")])])])])
-  })], 2)])
+      staticClass: "w3-large",
+      domProps: {
+        "textContent": _vm._s(item.product)
+      }
+    }), _c('br'), _vm._v(" "), _c('span', [_vm._v(" x" + _vm._s(item.qty) + "\n                    $ " + _vm._s(item.qty * item.price))])])])])
+  }), _vm._v(" "), _c('div', {
+    staticClass: "w3-bar"
+  }, [(!_vm.isEmpty) ? _c('button', {
+    staticClass: "w3-bar-item w3-button w3-indigo",
+    staticStyle: {
+      "width": "100%"
+    }
+  }, [_vm._v("ADD TO\n                CART\n            ")]) : _vm._e()])], 2)])
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
