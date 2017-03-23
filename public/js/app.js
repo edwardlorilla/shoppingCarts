@@ -13053,7 +13053,6 @@ exports.default = {
     },
     methods: {
         deleteItem: function deleteItem(index) {
-            console.log(index);
             _shoppingCartState2.default.deleteItem(this.items[index]);
         },
         itemChecked: function itemChecked(item) {
@@ -13062,9 +13061,19 @@ exports.default = {
             } else {
                 item.completed = !item.completed;
             }
+        },
+        inc: function inc(index) {
+            _shoppingCartState2.default.inc(this.items[index]);
+        },
+        dec: function dec(index) {
+            _shoppingCartState2.default.dec(this.items[index]);
         }
     }
 }; //
+//
+//
+//
+//
 //
 //
 //
@@ -33108,8 +33117,8 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       directives: [{
         name: "model",
         rawName: "v-model",
-        value: (item.completed),
-        expression: "item.completed"
+        value: (_vm.checked),
+        expression: "checked"
       }],
       staticClass: "w3-check w3-left w3-margin-right ",
       attrs: {
@@ -33117,26 +33126,26 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       },
       domProps: {
         "value": item.price * item.qty,
-        "checked": Array.isArray(item.completed) ? _vm._i(item.completed, item.price * item.qty) > -1 : (item.completed)
+        "checked": Array.isArray(_vm.checked) ? _vm._i(_vm.checked, item.price * item.qty) > -1 : (_vm.checked)
       },
       on: {
         "click": function($event) {
           _vm.itemChecked(item)
         },
         "__c": function($event) {
-          var $$a = item.completed,
+          var $$a = _vm.checked,
             $$el = $event.target,
             $$c = $$el.checked ? (true) : (false);
           if (Array.isArray($$a)) {
             var $$v = item.price * item.qty,
               $$i = _vm._i($$a, $$v);
             if ($$c) {
-              $$i < 0 && (item.completed = $$a.concat($$v))
+              $$i < 0 && (_vm.checked = $$a.concat($$v))
             } else {
-              $$i > -1 && (item.completed = $$a.slice(0, $$i).concat($$a.slice($$i + 1)))
+              $$i > -1 && (_vm.checked = $$a.slice(0, $$i).concat($$a.slice($$i + 1)))
             }
           } else {
-            item.completed = $$c
+            _vm.checked = $$c
           }
         }
       }

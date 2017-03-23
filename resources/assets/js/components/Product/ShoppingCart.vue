@@ -17,6 +17,10 @@
                         <label class="w3-validate w3-large " v-text="item.product"></label><br>
                         <span> x{{item.qty}}
                         $ {{item.qty * item.price}}</span>
+                        <!--<div class="w3-container w3-right">-->
+                            <!--<button class="w3-container w3-button w3-teal"   @click="inc(index)">+</button>-->
+                            <!--<button class="w3-container w3-button w3-red"  @click="dec(index)">-</button>-->
+                        <!--</div>-->
                     </li>
                 </ul>
             </div>
@@ -60,7 +64,6 @@
         },
         methods:{
             deleteItem(index){
-                console.log(index)
                 State.deleteItem(this.items[index])
             },
             itemChecked(item){
@@ -69,6 +72,12 @@
                 }else {
                     item.completed = !item.completed
                 }
+            },
+            inc (index) {
+                State.inc(this.items[index])
+            },
+            dec (index) {
+                State.dec(this.items[index])
             }
         }
     }
