@@ -13032,19 +13032,16 @@ exports.default = {
             items: _shoppingCartState2.default.data.cart,
             item: {
                 completed: true
-            },
-            checked: []
+            }
         };
     },
 
     computed: {
-        sum: function sum() {
-            var _this = this;
-            return _.sum(_this.checked);
-        },
         total: function total() {
             return _.sumBy(this.items, function (item) {
-                return item.price * item.qty;
+                if (item.completed) {
+                    return item.price * item.qty;
+                }
             });
         },
         isEmpty: function isEmpty() {
@@ -13062,11 +13059,12 @@ exports.default = {
                 item.completed = !item.completed;
             }
         },
-        inc: function inc(index) {
-            _shoppingCartState2.default.inc(this.items[index]);
-        },
-        dec: function dec(index) {
-            _shoppingCartState2.default.dec(this.items[index]);
+        changeMoney: function changeMoney(index, key) {
+            if (key) {
+                _shoppingCartState2.default.inc(this.items[index]);
+            } else {
+                _shoppingCartState2.default.dec(this.items[index]);
+            }
         }
     }
 }; //
@@ -33102,7 +33100,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "cart-total"
   }, [_c('span', [_vm._v("Total")]), _vm._v(" "), _c('span', {
     staticClass: "right"
-  }, [_vm._v("$ " + _vm._s(_vm.sum))])]), _vm._v(" "), _c('div', {
+  }, [_vm._v("$ " + _vm._s(_vm.total))])]), _vm._v(" "), _c('div', {
     staticClass: "w3-content"
   }, [(_vm.total == 0) ? _c('p', {
     staticClass: "cart-empty"
@@ -33114,39 +33112,13 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }, [_c('li', {
       staticClass: "w3-padding-16"
     }, [_c('input', {
-      directives: [{
-        name: "model",
-        rawName: "v-model",
-        value: (_vm.checked),
-        expression: "checked"
-      }],
       staticClass: "w3-check w3-left w3-margin-right ",
       attrs: {
         "type": "checkbox"
       },
-      domProps: {
-        "value": item.price * item.qty,
-        "checked": Array.isArray(_vm.checked) ? _vm._i(_vm.checked, item.price * item.qty) > -1 : (_vm.checked)
-      },
       on: {
         "click": function($event) {
           _vm.itemChecked(item)
-        },
-        "__c": function($event) {
-          var $$a = _vm.checked,
-            $$el = $event.target,
-            $$c = $$el.checked ? (true) : (false);
-          if (Array.isArray($$a)) {
-            var $$v = item.price * item.qty,
-              $$i = _vm._i($$a, $$v);
-            if ($$c) {
-              $$i < 0 && (_vm.checked = $$a.concat($$v))
-            } else {
-              $$i > -1 && (_vm.checked = $$a.slice(0, $$i).concat($$a.slice($$i + 1)))
-            }
-          } else {
-            _vm.checked = $$c
-          }
         }
       }
     }), _vm._v(" "), _c('span', {
@@ -33170,7 +33142,23 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       domProps: {
         "textContent": _vm._s(item.product)
       }
-    }), _c('br'), _vm._v(" "), _c('span', [_vm._v(" x" + _vm._s(item.qty) + "\n                    $ " + _vm._s(item.qty * item.price))])])])])
+    }), _c('br'), _vm._v(" "), _c('span', [_vm._v(" x" + _vm._s(item.qty) + "\n                    $ " + _vm._s(item.qty * item.price))]), _vm._v(" "), _c('div', {
+      staticClass: "w3-container w3-right"
+    }, [_c('button', {
+      staticClass: "w3-container w3-button w3-teal",
+      on: {
+        "click": function($event) {
+          _vm.changeMoney(index, 1)
+        }
+      }
+    }, [_vm._v("+")]), _vm._v(" "), _c('button', {
+      staticClass: "w3-container w3-button w3-red",
+      on: {
+        "click": function($event) {
+          _vm.changeMoney(index, 0)
+        }
+      }
+    }, [_vm._v("-")])])])])])
   }), _vm._v(" "), _c('div', {
     staticClass: "w3-bar"
   }, [(!_vm.isEmpty) ? _c('button', {
