@@ -14,7 +14,7 @@
 </head>
 <body>
 <div class="main-wrapper">
-    <div class="header"><h1>Vue Shopping Cart</h1></div>
+
     <div id="vue">
 
     </div>

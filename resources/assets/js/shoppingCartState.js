@@ -43,4 +43,5 @@ dec (product) {
             this.data.cart.splice(index, 1)
         }
     }
+
 }

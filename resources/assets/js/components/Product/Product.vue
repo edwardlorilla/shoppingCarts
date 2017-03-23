@@ -5,6 +5,7 @@
                     <img :src="product.image ? product.image.file : '' " style="width:100%">
                 </header>
                 <div class="w3-container w3-white">
+
                     <h4>{{product.product}}</h4>
                     <p>{{product.details }}</p>
                     <hr>
