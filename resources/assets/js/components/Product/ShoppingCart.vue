@@ -70,17 +70,16 @@
                     item.completed = !item.completed
                 }
             },
-            changeMoney (index,key) {
-                 if(key){
+            changeMoney(index, key) {
+                if (key) {
                     State.inc(this.items[index])
                 }else{
-                   State.dec(this.items[index])
+                    State.dec(this.items[index])
 
                 }
             }
         }
     }
-
 
 
 
