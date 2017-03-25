@@ -7,7 +7,7 @@
                 </div>
             </div>
             <div class="w3-half">
-                <slot></slot>
+               <slot></slot>
             </div>
             <div class="w3-quarter">
                 <div class="w3-bar w3-xlarge">
@@ -18,9 +18,3 @@
             </div>
         </div>
 </template>
-<script>
-    export default{
-        props: ['value']
-        
-    }
-</script>
