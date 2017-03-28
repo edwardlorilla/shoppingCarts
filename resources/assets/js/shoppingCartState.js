@@ -42,6 +42,8 @@ dec (product) {
             var index = _.indexOf(this.data.cart, found)
             this.data.cart.splice(index, 1)
         }
-    }
+    },
+
+
 
 }

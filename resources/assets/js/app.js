@@ -34,5 +34,14 @@ router.beforeEach((to, from, next) => {
     next()
 })
 
-
+export const eventBus = new Vue({
+    data:{
+        toggleData:false
+    },
+    methods:{
+        toggleState(toggle){
+            this.$emit('toggleState', toggle)
+        }
+    }
+});
 new Vue(Vue.util.extend({router}, App)).$mount('#vue');

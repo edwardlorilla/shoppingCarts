@@ -1,26 +1,22 @@
 <template>
     <div>
-
-
-
-            <component :is="layout">
-                <img slot="image" :src="product.image ? product.image.file : '' " style="width:100%">
-                <h4 slot="product">{{product.product}}</h4>
-                <p slot="detail">{{product.details }}</p>
-                <span slot="price">$ {{product.price}}</span>
-                <span slot="quantity" v-if="qtyInCart > 0">x{{qtyInCart}}</span>
-                <div slot="button" class="w3-bar">
-                    <button class="w3-bar-item w3-button w3-indigo" style="width:100%" @click="addToCart"
-                            v-if="qtyInCart == 0">ADD TO
-                        CART
+        <component :is="layout">
+            <img slot="image" :src="product.image ? product.image.file : '' " style="width:100%">
+            <h4 slot="product">{{product.product}}</h4>
+            <p slot="detail">{{product.details }}</p>
+            <span slot="price">$ {{product.price}}</span>
+            <span slot="quantity" v-if="qtyInCart > 0">x{{qtyInCart}}</span>
+            <div slot="button" class="w3-bar">
+                <button class="w3-bar-item w3-button w3-indigo" style="width:100%" @click="addToCart"
+                        v-if="qtyInCart == 0">ADD TO
+                    CART
                     </button>
-                    <div v-else>
-                        <button class="w3-bar-item w3-button w3-teal" style="width:50%" @click="inc">+</button>
-                        <button class="w3-bar-item w3-button w3-red" style="width:50%" @click="dec">-</button>
+                <div v-else>
+                    <button class="w3-bar-item w3-button w3-teal" style="width:50%" @click="inc">+</button>
+                    <button class="w3-bar-item w3-button w3-red" style="width:50%" @click="dec">-</button>
                     </div>
                 </div>
             </component>
-
     </div>
 </template>
 <style>

@@ -10,4 +10,9 @@ class Product extends Model
     public function image(){
         return $this->belongsTo(Image::class);
     }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

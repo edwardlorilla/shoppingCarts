@@ -11,7 +11,7 @@ export default [
     {
         path: '/home',
         component: Home,
-        name:'home'
+        name: 'home'
     },
     {
         path: '/checkout',
@@ -19,15 +19,17 @@ export default [
         name: 'checkout'
     },
     {
-        path:'/signin',
-        component:Signin,
-        name:'signin'
+        path: '/signin',
+        component: Signin,
+        name: 'signin'
     },
     {
-        path:'/dashboard',
-        component:DashboardPage,
-        name:'dashboard',
-        meta: { requiresAuth: true }
+        path: '/dashboard',
+        component: DashboardPage,
+        name: 'dashboard',
+        meta: {
+            requiresAuth: true
+        }
     }
 
 ]

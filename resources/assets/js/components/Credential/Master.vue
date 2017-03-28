@@ -125,6 +125,14 @@
             'register-form':RegisterForm,
             'search-credential':Search
         },
+        beforeRouteEnter(to,from,next){
+            const authUser = JSON.parse(window.localStorage.getItem('authUser'))
+            if(authUser && authUser.access_token){
+                next({name: 'home'})
+            }else{
+                next()
+            }
+        }
 
     }
 
